@@ -1,0 +1,15 @@
+table td {
+    padding: 0px !important;
+}
+
+table td a {
+    display: block;
+    padding: 8px;
+    color: black !important;
+    text-decoration: none !important;
+}
+
+table td a:hover {
+    color: black;
+    text-decoration: none;
+}

@@ -1,0 +1,216 @@
+* {
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.left-menu-container {
+    background: white;
+    width: 200px;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+}
+
+.left-menu {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px 7px;
+}
+
+.menu-item {
+    display: block;
+    padding: 8px;
+    margin-bottom: 7px;
+}
+
+.menu-item:not(#active-item) {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.menu-item i {
+    font-size: 18px;
+}
+
+.menu-item:hover {
+    background: #ddd;
+    color: black;
+    text-decoration: none;
+}
+
+#active-item {
+    background: #007aff !important;
+    color: white !important;
+}
+
+.icon-container {
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.top-nav {
+    width: 100%;
+    padding-left: 200px;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), 0 2px 3px 0 rgba(0, 0, 0, 0.09);
+}
+
+.top-nav .title {
+    margin: 14px 0px;
+    padding: 0;
+}
+
+.main-container {
+    height: 100%;
+    padding: 77px 20px 20px 220px;
+}
+
+.main-content {
+    width: 100%;
+    margin: 0px auto 20px;
+    max-width: 800px;
+}
+
+.func-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.box-container {
+    width: 300px;
+    float: left;
+    margin-right: 10px;
+}
+
+.box-text {
+    float: left;
+    width: 264px;
+    height: 36px;
+    margin: 0px;
+    padding: 0px 10px;
+    border: 1px #c8c8c8 solid;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.box-text:focus {
+    border: 1px #007aff solid;
+}
+
+.box-text:hover {
+    border: 1px #007aff solid;
+}
+
+.box-btn {
+    float: left;
+    width: 36px;
+    height: 36px;
+    margin: 0px;
+    background-color: #007aff;
+    border-radius: 0px 4px 4px 0px;
+    border: none;
+    line-height: 36px;
+}
+
+.func-btn {
+    display: block;
+    padding: 8px 16px;
+    background: #007aff;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 4px;
+    border: none;
+}
+
+.add-btn, .refresh-btn {
+    float: left;
+    margin-right: 10px;
+}
+
+.sub-func-btn {
+    display: block;
+    padding: 4px 16px;
+    font-weight: 600;
+    font-size: 0.925em;
+    color: #007aff !important;
+    background: #f9f9f9;
+    border: none;
+    border-radius: 15px;
+    text-decoration: none !important;
+    margin: 5px 5px 5px 0px;
+}
+
+.sub-func-btn:hover {
+    background:#007aff;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.del-btn, .choose-btn, .update-btn, .save-btn {
+    float: right;
+}
+
+.save-btn {
+    margin-top: 10px;
+}
+
+hr {
+    margin: 10px 0px !important;
+    border-top-color: #ddd;
+}
+
+.dataTables_wrapper .row:first-child,.dataTables_info {
+    display: none !important;
+}
+
+table th {
+    background: #f9f9f9;
+}
+
+tbody td {
+    border: none !important;
+    background: white;
+}
+
+tbody tr:not(:last-child) td {
+    border-bottom: 1px #ddd solid !important;
+}
+
+.sub-title {
+    margin-bottom: 4px;
+}
+
+input[type="text"]:not(.box-text), select, input[type="date"] {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px #c8c8c8 solid;
+    border-radius: 4px;
+}
+
+input[type="checkbox"][readonly] {
+    pointer-events: none;
+}
+
+label {
+    font-weight: normal;
+    margin-right: 10px;
+}
+
+select {
+    height: 32px;
+    line-height: 32px;
+}
