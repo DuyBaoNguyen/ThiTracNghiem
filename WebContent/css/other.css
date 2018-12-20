@@ -1,0 +1,15 @@
+.sub-title {
+	float: left;
+}
+
+textarea {
+	margin-bottom: 20px;
+}
+
+textarea:nth-of-type(1), textarea:nth-last-of-type(1) {
+	margin-bottom: 0px;
+}
+
+#right-answer-id {
+	background: #f2fffd;
+}

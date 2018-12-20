@@ -1,0 +1,41 @@
+.class-container {
+    float: left;
+    padding: 5px;
+    width: 25%;
+}
+
+.class-item {
+    display: block;
+    height: 140px;
+    border: 1px #c8c8c8 solid;
+    border-radius: 4px;
+    font-size: 1.2em;
+    color: black !important;
+    text-decoration: none !important;
+    text-align: center;
+    line-height: 140px;
+    padding: 0px 20px;
+}
+
+.class-item:hover {
+    box-shadow: 0px 0px 10px #007aff;
+    border: none;
+}
+
+.class-item p {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 900px) {
+    .class-container {
+        width: 33.33%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .class-container {
+        width: 50%;
+    }
+}
