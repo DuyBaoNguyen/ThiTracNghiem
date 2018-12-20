@@ -10,6 +10,7 @@ import java.util.List;
 
 import db.DbConnection;
 import model.UserEntry;
+import model.AccountEntry;
 import model.RoleEntry;
 
 public class UserDAO {
@@ -34,6 +35,52 @@ public class UserDAO {
 						result.getDate(5),
 						result.getString(6),
 						new RoleEntry(result.getString(7)));
+				users.add(user);
+			}
+		} catch (SQLException e) {
+
+		} finally {
+			if (result != null) {
+				try {
+					result.close();
+				} catch (SQLException e) {
+
+				}
+			}
+
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+
+				}
+			}
+
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+				}
+			}
+		}
+		return users;
+	}
+	
+	public static List<UserEntry> getUsersNoAccount() {
+		List<UserEntry> users = new ArrayList<UserEntry>();
+		Connection con = null;
+		CallableStatement statement = null;
+		ResultSet result = null;
+
+		try {
+			con = DbConnection.getInstance().getConnection();
+			statement = con.prepareCall("{call layDsNguoiDungKhongTaiKhoan()}");
+
+			result = statement.executeQuery();
+
+			while (result.next()) {
+				UserEntry user = new UserEntry(result.getString(1), result.getString(2));
 				users.add(user);
 			}
 		} catch (SQLException e) {
@@ -251,5 +298,35 @@ public class UserDAO {
 			}
 		}
 		return error;
+	}
+	
+	public static UserEntry getUser(Connection con, AccountEntry acc) throws SQLException {
+		UserEntry user = null;
+		CallableStatement statement = null;
+
+		try {
+			statement = con.prepareCall("{call layNguoiDungTheoTaiKhoan(?, ?, ?, ?)}");
+			statement.setString(1, acc.getUsername());
+			statement.registerOutParameter(2, Types.VARCHAR);
+			statement.registerOutParameter(3, Types.VARCHAR);
+			statement.registerOutParameter(4, Types.VARCHAR);
+			statement.execute();
+			
+			user = new UserEntry();
+			user.setId(statement.getString(2));
+			user.setName(statement.getString(3));
+			user.setRole(new RoleEntry(statement.getString(4)));
+		} catch (SQLException e) {
+			throw e;
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+
+				}
+			}
+		}
+		return user;
 	}
 }

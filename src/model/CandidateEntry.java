@@ -3,6 +3,11 @@ package model;
 import java.sql.Date;
 
 public class CandidateEntry extends UserEntry {
+	public CandidateEntry() {
+		
+	}
+	
+	
 	public CandidateEntry(String id) {
 		super(id);
 	}

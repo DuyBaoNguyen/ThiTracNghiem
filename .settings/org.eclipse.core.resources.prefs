@@ -1,4 +1,10 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/DanhSachLopHoc.jsp=UTF-8
+encoding//WebContent/WEB-INF/KhongTheTruyCap.jsp=UTF-8
 encoding//WebContent/WEB-INF/SuaLopHoc.jsp=UTF-8
 encoding//WebContent/WEB-INF/ThemThiSinh.jsp=UTF-8
+encoding//src/controller/DangNhap.java=UTF-8
+encoding//src/controller/DeThi.java=UTF-8
+encoding//src/controller/KiemTraVaiTro.java=UTF-8
+encoding//src/dao/ExamDAO.java=UTF-8
+encoding//src/dao/ResultDAO.java=UTF-8

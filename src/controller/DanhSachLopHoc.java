@@ -34,7 +34,6 @@ public class DanhSachLopHoc extends HttpServlet {
 			classError = false;
 		}
 		request.setAttribute("classError", classError);
-		
 		request.getRequestDispatcher("/WEB-INF/DanhSachLopHoc.jsp").forward(request, response);
 	}
 

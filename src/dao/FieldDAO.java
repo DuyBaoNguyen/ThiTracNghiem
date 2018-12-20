@@ -23,7 +23,7 @@ public class FieldDAO {
 			result = statement.executeQuery();
 
 			while (result.next()) {
-				FieldEntry field = new FieldEntry(result.getInt("ma_linh_vuc"), result.getString("ten_linh_vuc"));
+				FieldEntry field = new FieldEntry(result.getInt(1), result.getString(2));
 				fields.add(field);
 			}
 		} catch (SQLException e) {

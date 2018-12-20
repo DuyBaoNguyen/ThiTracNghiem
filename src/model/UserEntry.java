@@ -10,6 +10,10 @@ public class UserEntry {
 	Date birthday;
 	String phone;
 	RoleEntry role;
+	
+	public UserEntry() {
+		
+	}
 
 	public UserEntry(String id) {
 		this.id = id;

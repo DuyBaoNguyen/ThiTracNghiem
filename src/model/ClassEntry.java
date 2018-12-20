@@ -26,6 +26,11 @@ public class ClassEntry {
 		this.name = name;
 		this.amountCandidate = amountCandidate;
 	}
+	
+	public ClassEntry(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 
 	public String getId() {
 		return id;

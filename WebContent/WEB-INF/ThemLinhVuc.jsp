@@ -50,6 +50,36 @@
                 </div>
                 <span class="menu-item-content">Người dùng</span>
             </a>
+            <a class="menu-item" href="${pageContext.request.contextPath}/DanhSachTaiKhoan">
+                <div class="icon-container">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <span class="menu-item-content">Tài khoản</span>
+            </a>
+            <a class="menu-item" href="${pageContext.request.contextPath}/DanhSachDeThi">
+                <div class="icon-container">
+                   	<i class="fas fa-file"></i>
+                </div>
+                <span class="menu-item-content">Đề Thi</span>
+            </a>
+            <a class="menu-item" href="${pageContext.request.contextPath}/DanhSachCauHoi">
+				<div class="icon-container">
+					<i class="fas fa-question"></i>
+				</div>
+				<span class="menu-item-content">Câu hỏi</span>
+			</a>
+			<a class="menu-item" href="${pageContext.request.contextPath}/ThongTinNguoiDung">
+				<div class="icon-container">
+					<i class="fas fa-info"></i>
+				</div>
+				<span class="menu-item-content">Thông tin cá nhân</span>
+			</a>
+			<a class="menu-item" href="${pageContext.request.contextPath}/DoiMatKhauNguoiDung">
+				<div class="icon-container">
+					<i class="fas fa-key"></i>
+				</div>
+				<span class="menu-item-content">Đổi mật khẩu</span>
+			</a>
             <hr>
             <a class="menu-item" href="${pageContext.request.contextPath}/DangXuat">
                 <div class="icon-container">

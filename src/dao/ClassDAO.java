@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import db.DbConnection;
+import model.CandidateEntry;
 import model.ClassEntry;
+import model.ExamEntry;
 import model.FieldEntry;
 
 public class ClassDAO {
@@ -222,5 +224,149 @@ public class ClassDAO {
 		}
 		
 		return entries;
+	}
+	
+	public static List<ClassEntry> getClassesNoneExam(ExamEntry exam) {
+		List<ClassEntry> classes = new ArrayList<ClassEntry>();
+		Connection con = null;
+		CallableStatement statement = null;
+		ResultSet result = null;
+
+		try {
+			con = DbConnection.getInstance().getConnection();
+			statement = con.prepareCall("{call layDsLopKhongCoDeThi(?)}");
+
+			statement.setInt(1, exam.getId());
+
+			result = statement.executeQuery();
+
+			while (result.next()) {
+				ClassEntry classEntry = new ClassEntry(result.getString(1), result.getString(2));
+				classes.add(classEntry);
+			}
+		} catch (SQLException e) {
+
+		} finally {
+			if (result != null) {
+				try {
+					result.close();
+				} catch (SQLException e) {
+
+				}
+			}
+
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+
+				}
+			}
+
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+				}
+			}
+		}
+		return classes;
+	}
+	
+	public static List<ClassEntry> getClassesHaveExam(ExamEntry exam) {
+		List<ClassEntry> classes = new ArrayList<ClassEntry>();
+		Connection con = null;
+		CallableStatement statement = null;
+		ResultSet result = null;
+
+		try {
+			con = DbConnection.getInstance().getConnection();
+			statement = con.prepareCall("{call layDsLopCoDeThi(?)}");
+
+			statement.setInt(1, exam.getId());
+
+			result = statement.executeQuery();
+
+			while (result.next()) {
+				ClassEntry classEntry = new ClassEntry(result.getString(1), result.getString(2));
+				classes.add(classEntry);
+			}
+		} catch (SQLException e) {
+
+		} finally {
+			if (result != null) {
+				try {
+					result.close();
+				} catch (SQLException e) {
+
+				}
+			}
+
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+
+				}
+			}
+
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+				}
+			}
+		}
+		return classes;
+	}
+	
+	public static List<ClassEntry> getClassesByCandidate(CandidateEntry cdd) {
+		List<ClassEntry> classes = new ArrayList<ClassEntry>();
+		Connection con = null;
+		CallableStatement statement = null;
+		ResultSet result = null;
+
+		try {
+			con = DbConnection.getInstance().getConnection();
+
+			statement = con.prepareCall("{call layDsLopHocTheoThiSinh(?)}");
+			statement.setString(1, cdd.getId());
+			result = statement.executeQuery();
+
+			while (result.next()) {
+				ClassEntry entry = new ClassEntry(result.getString(1), result.getString(2));
+				classes.add(entry);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (result != null) {
+				try {
+					result.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return classes;
 	}
 }
