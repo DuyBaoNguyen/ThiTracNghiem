@@ -126,30 +126,7 @@
 		  	document.getElementById("timer").innerHTML = hours +  ":"  + minutes +  ":"   + seconds;
 		}
 	 </script>
-	
-<!-- 	<script> -->
-// window.onload = function () {
-//     if (typeof history.pushState === "function") {
-//         history.pushState("change", null, null);
-//         window.onpopstate = function () {
-//             history.pushState('newchange', null, null);
-//             window.alert("Bạn không thể chuyển trang khi đang thi!")
-//         };
-//     }
-//     else {
-//         var ignoreHashChange = true;
-//         window.onhashchange = function () {
-//             if (!ignoreHashChange) {
-//                 ignoreHashChange = true;
-//                 window.location.hash = Math.random();
-//             }
-//             else {
-//                 ignoreHashChange = false;   
-//             }
-//         };
-//     }
-// }
-<!-- 	</script> -->
+
 
 </body>
 

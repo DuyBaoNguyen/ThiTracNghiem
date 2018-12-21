@@ -154,19 +154,39 @@ public class Thi extends HttpServlet {
 	}
 
 	private void randomQuestions(List<QuestionEntry> result, List<QuestionEntry> input, int n) {
-		int a, b;
-		int d = (int) Math.ceil(input.size() / n);
+		int a, b = 0, length = input.size();
+		double tmp = (double)input.size() / n;
 		Random rand = new Random();
 
-		for (int i = 0; i < n; i++) {
-			a = i * d;
-			if (i == n - 1) {
-				b = input.size() - 1;
-			} else {
-				b = (i + 1) * d - 1;
+		if (tmp > 1 && tmp < 2 && (n - 1) * 2 >= length) {
+			int count = 1;
+			int tmp1 = n - 1;
+			while (count * 2 + tmp1 != length) {
+				count++;
+				tmp1--;
 			}
+			for (int i = 0; i < n; i++) {
+				if (i < count) {
+					a = i * 2;
+					b = (i + 1) * 2 - 1;
+				} else {
+					a = ++b;
+				}
+				
+				result.add(input.get(rand.nextInt(b - a + 1) + a));
+			}
+		} else {
+			int d = (int)Math.ceil(tmp);
+			for (int i = 0; i < n; i++) {
+				a = i * d;
+				if (i == n - 1) {
+					b = length - 1;
+				} else {
+					b = (i + 1) * d - 1;
+				}
 
-			result.add(input.get(rand.nextInt(b - a + 1) + a));
+				result.add(input.get(rand.nextInt(b - a + 1) + a));
+			}
 		}
 	}
 }
